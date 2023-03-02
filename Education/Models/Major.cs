@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -11,5 +12,7 @@ public class Major {
     [StringLength(50)]
     public string Description { get; set; } = string.Empty;
     public int MinSat { get; set; }
+    [JsonIgnore]  // when i read the student i want to get the major
+    public virtual ICollection<Student>? Students { get; set; }
 
 }

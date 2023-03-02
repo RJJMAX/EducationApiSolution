@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Education.Models; 
@@ -9,8 +10,9 @@ public class Student {
     [StringLength(2)]
     public string StateCode { get; set; } = string.Empty;
     public int? SAT { get; set; }
-    [Column(TypeName = "decimal(11,2)")]
+    [Column(TypeName = "decimal(3,2)")]
     public decimal GPA { get; set; }
     public int MajorId { get; set; }
+    //[JsonIgnore] either here or in Major class
     public virtual Major? Major { get; set; }
 }
